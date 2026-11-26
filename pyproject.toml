@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pastureweigh"
+version = "0.1.0"
+description = "Mask geometry and lightweight regression for cattle weight estimation"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "opencv-python-headless>=4.8",
+    "torch>=2.6",
+]
+
+[project.urls]
+Repository = "https://github.com/Sheffield-Prisma/PastureWeigh"
+
+[project.scripts]
+pastureweigh-split = "pastureweigh_rgb.splits:main"
+pastureweigh-train = "pastureweigh_rgb.train_test:main"
+pastureweigh-predict = "pastureweigh_rgb.inference:main"
+pastureweigh-summarize = "pastureweigh_rgb.summarize_experiments:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["src"]

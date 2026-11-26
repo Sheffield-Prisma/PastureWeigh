@@ -1,0 +1,9 @@
+include README.md pyproject.toml
+recursive-include src *.py
+recursive-include tests *.py
+prune workflow
+prune data
+prune outputs
+prune results
+prune checkpoints
+global-exclude *.py[cod] *.pt *.pth *.ckpt *.safetensors *.npy *.npz
